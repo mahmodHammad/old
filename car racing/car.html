@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rac</title>
+</head>
+<body>
+<div id="btn">
+<input type="button" value="Race!" id="go">
+<input type="button" value="Rest!" id="rest">
+</div>
+    <div id="racetrack">
+    <img src="car1.jpg" alt="green car" id="car1" class="car">
+    <img src="car2.jpg " alt="red car" id="car2" class="car">
+</div>
+
+<div id="raceInfoContainer" class="clearfix">
+    <h2>results</h2>
+    <div id="raceInfo1" class="raceInfo">car 1 <span></span></div>
+    <div id="raceInfo2" class="raceInfo">car 2 <span></span></div>
+
+</div>
+
+
+<style>
+*{text-align: center;}
+#racetrack{
+    background: url("back.png") center left repeat-x ;
+    border-right: dashed 10px white;
+    height: 360px;
+    margin: 40px 0;
+}
+    .car{
+        display:block;
+        position: relative;
+        width: 333px;
+    }
+    #car2{ top:71px;}
+    #car1{ top:-15px;}
+#raceInfoContainer{
+    width: 80%;
+    margin: 40px auto 0;
+    background: #333;
+    height: 200px;
+}
+
+    h2{
+        color: #fff;
+        text-transform: uppercase;
+        border-bottom: solid 1px white;
+        padding: 20px 0;
+
+    }
+
+    .raceInfo{
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        width: 50%;
+        float: left;
+
+    }
+    span{
+        display: block;
+        font-weight: normal;
+        font-size: 18px;
+        color: #fff;
+    }
+
+    #raceInfo1{
+        color: orangered;}
+#raceInfo2{
+        color: greenyellow;}
+    input[type='button']{
+        background: #77b72f;
+        color: #fff;
+        padding: 15px 24px;
+        border: solid 1px #444;
+        margin-top: 30px;
+    /*position: relative;*/
+        /*left: 44%;*/
+    }
+    /*#btn{*/
+        /*!*margin: 20px auto 200px;*!*/
+        /*background: orange; }*/
+
+    #rest{
+        background: #fc3;
+        color: #444;
+
+    }
+
+</style>
+
+<script src="jquery-3.3.1.js"></script>
+<script src="js.js"></script>
+</body>
+</html>
