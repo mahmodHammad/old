@@ -1,0 +1,172 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>js project</title>
+</head>
+<body>
+
+<div id='container'>
+	<h1> Tip calculator</h1>
+	<div id="calculater" >
+		<form>
+			<label> how much was your bill? <br> 
+				$<input type="text" id="billamount" name="">
+				</label>
+
+				<label>
+					how was your service? <br>
+						<select id="quality">
+							<option disabled selected value="0">choose an option</option>
+
+							<option value="0.3">30% - execlent</option>
+
+							<option value="0.2">20% - good</option>
+
+							<option value="0.15">15% - its okay</option>
+
+							<option value="0.1">10% - execlent</option>
+
+							<option value="0.05"> 5% - terrible</option>
+
+						</select>
+				</label>
+				<label>how many people are sharing the bill? <br>
+					<input type="text" name="" id="totalpeople"> people
+				</label>
+				<button type="button" id="calculate"> calculate</button>
+		</form>
+	</div>
+
+	<div id="totaltip">
+		<sup>$</sup> <span id="tip">0.00</span> 
+		<small id="each"> each</small>
+	</div>
+</div>
+
+<style type="text/css">
+body{
+background: linear-gradient(-90deg,#211 ,#998  ,#888,#998,#211);
+	color:#532827;	
+	
+}
+#container{background:radial-gradient(#ffccf7,#ccb); 
+	width: 400px;
+	margin: 40px  auto 0;
+	padding: 50px;
+	box-sizing: border-box;
+	box-shadow:  3px 10px 20px -2px #000;
+	border-radius: 6px;
+	text-align: center;
+		
+}
+
+h1{
+	margin: 0 0 20px;
+	padding: 0 0 20px;
+	border-bottom: solid 1px #ddd;
+}
+
+form{text-align: left; }
+
+form label{
+	display: block;
+	margin: 25px;
+	font-weight: bold;
+}
+
+form input[type='text'] {
+width: 90px; 
+text-align: left;
+border-radius: 6px;
+}
+	
+button{
+	background: #6c2820;
+	color: white;
+	border: none;
+	border-bottom: solid 4px #222;
+	text-transform: uppercase;
+	font-size: 18px;
+	padding: 20px 30px;
+	width:100%;
+	border-radius: 4px;
+	}
+button:hover{
+	background: #4c2827;
+	border-bottom: solid 4px #111;
+}
+button:active{
+	position: relative;
+	top: 1px;
+}
+#tip{
+	color: #cc0000;
+}
+#totaltip{ 
+	margin: 15px -48px auto ;
+	padding :6px ;
+	font-size: 44px;
+	margin-top: 40px;
+	background: rgba(20,20,20,.07);
+	border-radius: 3px;
+/*	width: 140%;*/
+}
+#totaltip:before{
+	content: "Tip Amount";
+	font-size:14px ;
+	font-weight: bold;
+	display: block;
+	text-transform: uppercase;
+}
+ sup{
+	font-size:24px;
+	top: -18px;
+}
+small{
+	font-size: 16px;
+	font-weight: bold;
+	display: block;
+}
+</style>
+ <script type="text/javascript">
+ 		
+//custom function
+function calculatetip(){
+	//get data
+	var billamount=document.getElementById("billamount").value;
+	var serviceQuality = document.getElementById("quality") .value;
+	var numPeople=document.getElementById("totalpeople").value;
+
+//validation
+	if (billamount==="" || serviceQuality ==0) {
+	 return window.alert('enter value');
+	}
+
+	if (numPeople===''|| numPeople <=1) {
+		numPeople = 1 ;
+		document.getElementById('each').style.display="none";
+	}
+	else{
+		document.getElementById('each').style.display="block";
+	}
+//do some math!!
+var total = (billamount * serviceQuality) /numPeople;
+total = Math.round(total * 100) /100;
+total.toFixed(2);
+// alert(total);
+//dispaly the tip;
+document.getElementById("totaltip").style.display="block";
+document.getElementById("tip").innerHTML = total;
+}
+
+	//hide amount on load
+document.getElementById("totaltip").style.display='none' ;
+document.getElementById("each").style.display='none';
+
+	//click the btn calls
+document.getElementById("calculate").onclick =function()
+{calculatetip(); }
+
+</script>
+</body>
+</html>
